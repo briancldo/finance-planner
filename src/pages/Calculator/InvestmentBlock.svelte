@@ -5,7 +5,7 @@ import { afterUpdate } from 'svelte';
 // contribution
   let principal;
   let amount;
-  let contributionFrequency = 'year';
+  let contributionFrequency = 'month';
   let duration;
 
   // compound

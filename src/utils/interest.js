@@ -30,7 +30,6 @@ function calculateContributionForPeriod(compoundFrequency, contributionFrequency
 
 function interestSigmaFormula(i, constants) {
   const { rate, periodContribution } = constants;
-  console.log({ rate, periodContribution });
   return (rate**i) * periodContribution;
 }
 
