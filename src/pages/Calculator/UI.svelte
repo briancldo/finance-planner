@@ -1,5 +1,9 @@
 <script></script>
 
+<main>
+  <h1>Calc Page UI</h1>
+</main>
+
 <style>
   main {
     height: 100%;
@@ -9,7 +13,3 @@
     justify-content: center;
   }
 </style>
-
-<main>
-  <h1>Calc Page UI</h1>
-</main>

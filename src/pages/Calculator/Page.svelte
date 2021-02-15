@@ -2,6 +2,6 @@
   import UI from './UI.svelte';
 </script>
 
-<style></style>
-
 <UI />
+
+<style></style>
