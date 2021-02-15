@@ -54,7 +54,9 @@ import { afterUpdate } from 'svelte';
   </select>
 
   <button on:click="{() => submitted = true}">Calculate</button>
-  <p><b>Result:</b> {result}</p>
+  {#if submitted}
+    <p><b>Result:</b> {result}</p>
+  {/if}
 </div>
 
 <style>
