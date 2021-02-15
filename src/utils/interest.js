@@ -4,11 +4,6 @@ import { DevError } from './errors';
 const frequencies = {
   month: 12,
   quarter: 4,
-  annual: 1,
-};
-const durations = {
-  month: 1,
-  quarter: 1,
   year: 1,
 };
 function validateCalculateInvestment(contribution, compound) {
@@ -20,8 +15,8 @@ function validateCalculateInvestment(contribution, compound) {
     throw new DevError(`Invalid contribution frequency: "${contribution.frequency}".`);
   if (typeof contribution.amount !== 'number')
     throw new DevError('Contribution amount should be a number.');
-  if (!durations[contribution.duration])
-    throw new DevError(`Invalid duration: "${contribution.duration}".`);
+  if (typeof contribution.duration !== 'number') throw new DevError('Duration must be a number.');
+  if (!(contribution.duration > 0)) throw new DevError('Duration must be at least one year.');
   
   if (typeof compound.rate !== 'number') throw new DevError('Rate should be a number.');
   if (!(compound.rate > 0 && compound.rate < 1)) throw new DevError('Rate should be between 0% and 100%');
@@ -30,19 +25,21 @@ function validateCalculateInvestment(contribution, compound) {
 }
 
 function calculateContributionForPeriod(compoundFrequency, contributionFrequency, contributionAmount) {
-  return (contributionFrequency/compoundFrequency) * contributionAmount;
+  return (frequencies[contributionFrequency]/frequencies[compoundFrequency]) * contributionAmount;
 }
 
 function interestSigmaFormula(i, constants) {
   const { rate, periodContribution } = constants;
+  console.log({ rate, periodContribution });
   return (rate**i) * periodContribution;
 }
 
 export function calculateInvestment(contribution, compound) {
-  validateCalculateInvestment(contribution, rate);
+  validateCalculateInvestment(contribution, compound);
   const periodContribution = calculateContributionForPeriod(compound.frequency, contribution.frequency, contribution.amount);
-  const _rate = 1 + rate;
+  const _rate = 1 + compound.rate;
 
   const interestSum = sigma(1, contribution.duration, interestSigmaFormula, { rate: _rate, periodContribution });
+  console.log('int sum:', interestSum);
   return interestSum + ( (_rate**contribution.duration) * contribution.principal );
 }

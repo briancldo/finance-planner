@@ -1,7 +1,9 @@
-<script></script>
+<script>
+  import InvestmentBlock from './InvestmentBlock.svelte';
+</script>
 
 <main>
-  <h1>Calc Page UI</h1>
+  <InvestmentBlock />
 </main>
 
 <style>
