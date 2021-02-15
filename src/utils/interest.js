@@ -12,10 +12,10 @@ const durations = {
   year: 1,
 };
 function validateCalculateInvestment(contribution, compound) {
-  if (typeof contribution.principal !== 'number') throw new DevError('Principal should be number.');
-  if (!(contribution.principal > 0)) throw new DevError('Principal must be a positive number.');
   if (typeof contribution !== 'object' || contribution === null)
     throw new DevError('Contrution must be an object.');
+  if (typeof contribution.principal !== 'number') throw new DevError('Principal should be number.');
+  if (!(contribution.principal > 0)) throw new DevError('Principal must be a positive number.');
   if (!frequencies[contribution.frequency])
     throw new DevError(`Invalid contribution frequency: "${contribution.frequency}".`);
   if (typeof contribution.amount !== 'number')
