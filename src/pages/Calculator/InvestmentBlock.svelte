@@ -12,16 +12,16 @@
   $: _rate = rate/100;
   let compoundFrequency ='year';
 
-  $: contribution = {
-    principal,
-    frequency: contributionFrequency,
-    amount,
-    duration,
-  };
-  $: compound = { rate: _rate, frequency: compoundFrequency };
   let result;
 
   function calculateResult() {
+    const contribution = {
+      principal,
+      frequency: contributionFrequency,
+      amount,
+      duration,
+    };
+    const compound = { rate: _rate, frequency: compoundFrequency };
     result = calculateInvestment(contribution, compound);
   }
 
