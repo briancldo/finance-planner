@@ -1,5 +1,6 @@
 <script>
   import { calculateInvestment } from '../../utils/interest';
+  import PrincipalSection from './PrincipalSection.svelte';
 
 // contribution
   let principal;
@@ -30,8 +31,7 @@
 <div class='block'>
   <form on:submit|preventDefault={calculateResult}>
     <!-- Contribution -->
-    <label for='principal'>Principal</label>
-    <input id='principal' type='number' min=0 bind:value={principal} required />
+    <PrincipalSection bind:principal />
     
     <label for='amount'>Contribution Amount</label>
     <input id='amount' type='number' min=0 bind:value={amount} required />
