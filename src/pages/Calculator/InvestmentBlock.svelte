@@ -2,6 +2,7 @@
   import { calculateInvestment } from '../../utils/interest';
   import PrincipalSection from './PrincipalSection.svelte';
   import AmountSection from './AmountSection.svelte';
+  import ContributionFrequencySection from './ContributionFrequencySection.svelte';
 
 // contribution
   let principal;
@@ -34,13 +35,7 @@
     <!-- Contribution -->
     <PrincipalSection bind:principal />
     <AmountSection bind:amount />
-
-    <label for='contributionFrequency'>Contribution Frequency</label>
-    <select id='contributionFrequency' bind:value={contributionFrequency}>
-      <option label='Monthly' value='month' />
-      <option label='Quarterly' value='quarter' />
-      <option label='Annually' value='year' />
-    </select>
+    <ContributionFrequencySection bind:contributionFrequency />    
 
     <label for='duration'>Contribution Duration (years)</label>
     <input id='duration' type='number' min=1 bind:value={duration} required />
