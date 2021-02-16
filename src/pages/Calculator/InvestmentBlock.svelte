@@ -3,6 +3,7 @@
   import PrincipalSection from './PrincipalSection.svelte';
   import AmountSection from './AmountSection.svelte';
   import ContributionFrequencySection from './ContributionFrequencySection.svelte';
+  import DurationSection from './DurationSection.svelte';
 
 // contribution
   let principal;
@@ -36,9 +37,7 @@
     <PrincipalSection bind:principal />
     <AmountSection bind:amount />
     <ContributionFrequencySection bind:contributionFrequency />    
-
-    <label for='duration'>Contribution Duration (years)</label>
-    <input id='duration' type='number' min=1 bind:value={duration} required />
+    <DurationSection bind:duration />    
 
     <!-- Compound -->
     <label for='rate'>Interest Rate %</label>
