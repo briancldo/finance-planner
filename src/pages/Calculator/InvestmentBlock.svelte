@@ -1,11 +1,11 @@
 <script>
   import { calculateInvestment } from '../../utils/interest';
-  import PrincipalSection from './PrincipalSection.svelte';
-  import AmountSection from './AmountSection.svelte';
-  import ContributionFrequencySection from './ContributionFrequencySection.svelte';
-  import DurationSection from './DurationSection.svelte';
-  import RateSection from './RateSection.svelte';
-  import CompoundFrequencySection from './CompoundFrequencySection.svelte';
+  import PrincipalSection from './sections/PrincipalSection.svelte';
+  import AmountSection from './sections/AmountSection.svelte';
+  import ContributionFrequencySection from './sections/ContributionFrequencySection.svelte';
+  import DurationSection from './sections/DurationSection.svelte';
+  import RateSection from './sections/RateSection.svelte';
+  import CompoundFrequencySection from './sections/CompoundFrequencySection.svelte';
 
 // contribution
   let principal;
