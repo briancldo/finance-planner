@@ -5,6 +5,7 @@
   import ContributionFrequencySection from './ContributionFrequencySection.svelte';
   import DurationSection from './DurationSection.svelte';
   import RateSection from './RateSection.svelte';
+  import CompoundFrequencySection from './CompoundFrequencySection.svelte';
 
 // contribution
   let principal;
@@ -42,14 +43,7 @@
 
     <!-- Compound -->
     <RateSection bind:rate />
-
-    <label for='compoundFrequency'>Compound Frequency</label>
-    <select id='compoundFrequency' bind:value={compoundFrequency}>
-      <option label='Monthly' value='month' />
-      <option label='Quarterly' value='quarter' />
-      <option label='Annually' value='year' />
-    </select>
-    <br />
+    <CompoundFrequencySection bind:compoundFrequency />
 
     <button type='submit'>Calculate</button>
   </form>
