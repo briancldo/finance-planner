@@ -39,6 +39,5 @@ export function calculateInvestment(contribution, compound) {
   const _rate = 1 + compound.rate;
 
   const interestSum = sigma(1, contribution.duration, interestSigmaFormula, { rate: _rate, periodContribution });
-  console.log('int sum:', interestSum);
   return interestSum + ( (_rate**contribution.duration) * contribution.principal );
 }
