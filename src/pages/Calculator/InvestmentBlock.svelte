@@ -4,6 +4,7 @@
   import AmountSection from './AmountSection.svelte';
   import ContributionFrequencySection from './ContributionFrequencySection.svelte';
   import DurationSection from './DurationSection.svelte';
+  import RateSection from './RateSection.svelte';
 
 // contribution
   let principal;
@@ -40,8 +41,7 @@
     <DurationSection bind:duration />    
 
     <!-- Compound -->
-    <label for='rate'>Interest Rate %</label>
-    <input id='rate' type='number' min=0 max=100 bind:value={rate} required />
+    <RateSection bind:rate />
 
     <label for='compoundFrequency'>Compound Frequency</label>
     <select id='compoundFrequency' bind:value={compoundFrequency}>
